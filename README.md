@@ -1,5 +1,3 @@
-
-
 # Real-Time Voice Cloning
 This repository is an implementation of [Transfer Learning from Speaker Verification to
 Multispeaker Text-To-Speech Synthesis](https://arxiv.org/pdf/1806.04558.pdf) (SV2TTS) with a vocoder that works in real-time. Feel free to check [my thesis](https://matheo.uliege.be/handle/2268.2/6801) if you're curious or if you're looking for info I haven't documented. Mostly I would recommend giving a quick look to the figures beyond the introduction.
@@ -29,7 +27,7 @@ For this assignment, we examined the work of this Text-To-Speech (cloning) progr
 
 #### 1. Participants
 
-All participants that filled in the survey were native Dutch speakers, and second language English speakers. (How many?)
+All participants that filled in the survey were native Dutch speakers, and second language English speakers. (How many? + more info?)
 
 #### 2. Test the difference in language that is used
 The original model of this repo is trained on the English language. To test whether this model works on different languages, we tried to test it on the Dutch language as well. We did this in four different ways.
@@ -77,7 +75,7 @@ The output can be found in the folder 'Recordings_VT/Output_Q1', 'NLinENout.wav'
 
 The second comparison we made is what different inputs will output. All different inputs has the output saying the following sentence:
 
-'They agreed that the one who first succeeded in making the traveller take his cloak off should be considered stronger than the other.'
+'They agreed that the one who first succeeded in making the traveller take his cloak off, should be considered stronger than the other.'
 
 The first input we used was the first sentence of the English text that was used at '2. Test the difference in language that is used' and can be found in the folder 'Recordings_VT/Input', 'northwind_EN_s1.wav'. The cloned version can be found in the folder 'Recordings_VT/Output_Q2', 's1_to_s2.wav'. So, for in this case the input sentence is differently from the output.
 
@@ -87,12 +85,23 @@ Finally, the input of the third file is the second language of the text that was
 
 #### 4. Test the amount of input that is used
 
+The last comparison we made is what different amount of data is used to clone the input. The output for all the inputs was the same:
 
+'What's in a name? That which we call a rose by any other name would smell as sweet.'
+
+The input for the model was either a .wav file containing one sentence of the text uses in '2. Test the difference in language that is used' ('Recordings_VT/Input', 'northwind_EN_s1.wav'), two sentences of this text ('Recordings_VT/Input', 'northwind_EN_s1s2.wav'), or the whole text ('Recordings_VT/Input', 'northwind_EN_total.wav'). The outputs were respectively (from the folder 'Recordings_VT/Output_Q3'): 's1.wav', 's1s2.wav', and 'total.wav'.
 
 #### 5. The survey
 
+In the survey two sets of questions were asked. First, the participants had to order voices what they found the most human-like to the least human-like. For each of the three experiments one question was made. So, for example, for the comparison of using different languages, the four output files of '2. Test the difference in language that is used'.
+
+Then, three questions (for each comparison separately) were asked what voices were the most similar to the demo file. The demo file was the input file with the first two sentences of the story described in the method part spoken by Suzanne de Vries. The participants had to order the files according to what was the most like the demo file and what the least.
+
 ### Results and Discussion
 
+* The input files were really short. Especially for the experiment about the different amount of input data, this might have influence, as the differences of the files are really small.
+
+* Every time, the neural network behind the model in the repo creates a new output, even if the input is the same. So, it might be the case that one output is very different from another output, while the same input file is used. In case there are very small differences between the file (check results if there are), then this also might be 'bad luck' that the model outputs a better or worse output than an other output where it is compared with.
 
 ## Setup
 
@@ -163,3 +172,4 @@ This will show a nice interface to use to clone the files. How to use this inter
 **06/07/19:** Need to run within a docker container on a remote server? See [here](https://sean.lane.sh/posts/2019/07/Running-the-Real-Time-Voice-Cloning-project-in-Docker/).
 
 **25/06/19:** Experimental support for low-memory GPUs (~2gb) added for the synthesizer. Pass `--low_mem` to `demo_cli.py` or `demo_toolbox.py` to enable it. It adds a big overhead, so it's not recommended if you have enough VRAM.
+
