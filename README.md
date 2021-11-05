@@ -126,6 +126,7 @@ Now you are using your environment with Python 3.7
 Next install ffmpeg and PyTorch with the following commands:
 
 `conda install -c conda-forge ffmpeg`
+
 `conda install -c pytorch pytorch` (this might take a while)
 
 To install and check for the other packages, use the following command:
@@ -138,7 +139,9 @@ Also, you have to use NumPy 1.20 for this repo to work. You can use the followin
 (make sure pip is upgraded: `pip install --upgrade pip`)
 
 `pip install webrtcvad-wheels`
+
 `conda install -c conda-forge pysoundfile`
+
 `conda install -c conda-forge numpy=1.20`
 
 Then download the pretrained models using the link. When extracting the zip file, you will see three folders named 'encoder', 'synthesizer', and 'vocoder'.
