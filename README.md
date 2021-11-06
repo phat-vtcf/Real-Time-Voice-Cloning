@@ -21,13 +21,21 @@ SV2TTS is a three-stage deep learning framework that allows to create a numerica
 
 ## Testing on variables (assignment Programming)
 
-For this assignment, we examined the work of this Text-To-Speech (cloning) program. We tested the program based on three variables: the difference in language that is used, the difference in input that is used, and the amount of input that is used. We used a survey (insert file of survey) to obtain the performance of the program.
+For this assignment, we examined the work of this Text-To-Speech (cloning) program. We tested the program based on three variables: the difference in language that is used, the difference in input that is used, and the amount of input that is used. We used a survey (https://rug.eu.qualtrics.com/jfe/preview/SV_9MExPEGffVN2HGu?Q_CHL=preview&Q_SurveyVersionID=current) to obtain the performance of the model.
+
+### Research question and hypothesis ###
+
+The research question of this experiment is the following:
+
+'Does the difference in language that is used, the difference in input that is used, or/and the amount of input that is used, have influence on the performance of the model?'
+
+We expected that the language would make a difference in performance, as the model is trained on English data. Therefore, we expected that the Dutch sentences were harder to clone than the English sentences. Also, we expected that the input of the model also plays an important role, as we thought it is easier for the model to clone a voice to the same sentence as what is used as input. Finally, we expected that the more input the better the cloned voice will be.
 
 ### Methods
 
 #### 1. Participants
 
-All participants that filled in the survey were native Dutch speakers, and second language English speakers. (How many? + more info?)
+All three participants that filled in the survey were native Dutch speakers, and second language English speakers. (How many? + more info?)
 
 #### 2. Test the difference in language that is used
 The original model of this repo is trained on the English language. To test whether this model works on different languages, we tried to test it on the Dutch language as well. We did this in four different ways.
@@ -97,11 +105,40 @@ In the survey two sets of questions were asked. First, the participants had to o
 
 Then, three questions (for each comparison separately) were asked what voices were the most similar to the demo file. The demo file was the input file with the first two sentences of the story described in the method part spoken by Suzanne de Vries. The participants had to order the files according to what was the most like the demo file and what the least.
 
-### Results and Discussion
+The survey can be found here: https://rug.eu.qualtrics.com/jfe/preview/SV_9MExPEGffVN2HGu?Q_CHL=preview&Q_SurveyVersionID=current
 
-* The input files were really short. Especially for the experiment about the different amount of input data, this might have influence, as the differences of the files are really small.
+### Results 
 
-* Every time, the neural network behind the model in the repo creates a new output, even if the input is the same. So, it might be the case that one output is very different from another output, while the same input file is used. In case there are very small differences between the file (check results if there are), then this also might be 'bad luck' that the model outputs a better or worse output than an other output where it is compared with.
+#### 1. Test the difference in language that is used
+
+Four different cloned voices are examined for this question. The first file (1) was cloned English sentence using an English text as input. The second file (2) was a cloned English sentence using a Dutch text as input. The third (3) and fourth (4) file both had a cloned Dutch sentence as output, where the third file had English text as input and the fourth file had Dutch text as input. As we expected that the model would work the best for the English language and the worst for the Dutch language, we expected the following order of the file from the participants: 1, 2, 3, 4 (from best cloned voice to worst cloned voice).
+
+The results show that there is indeed a division between the English output sentences (1 and 2) and the Dutch output sentences (3 and 4). File 1 and 2 are picked as best cloned voice and file 3 and 4 as worst cloned voice. However, the order between file 1 and 2 and between file 3 and 4 differed. 
+
+Similar results were found when was asked which voice was the most similar to the demo voice. Two out of the three participants made again the division between the English output (file 1 and 2) and the Dutch output (file 3 and 4).
+
+#### 2. Test the difference in input that is used
+
+Three different files were used in this experiment. The first file (1) was a cloned voice with an input that was a different sentence. The second file (2) was the original voice, so without being cloned. The last file (3) was a cloned voice with an input that was the same sentence. We expected that the original voice would be picked as the most human-like, as this is a human voice. Then, we expected that the voice with the same input sentence as output sentence would be the best. So the order that we expected was: 2, 3, 1.
+
+The results show that file 3 was actually the least like a human voice according to the three participants and either file 1 or file 2 were considered as most human-like. So the order that was given by the participants was either 1, 2, 3 or 2, 1, 3. When we asked what voice was the most similar to the demo voice the answers differ a lot. We cannot conclude anything from this.
+
+#### 3. Test the amount of input that is used
+
+For this experiment three different files were used. The first file (1) contained only the first sentence of a text, the second file (2) contained the first and the second sentence of a text and the third file (3) contained the whole text. We expected that the model would work better if more input was used than if less input was used. So we expected the following order: 3, 2, 1.
+
+The results show that file 1 indeed created the least human-like voice according to the three participants. However, all participants said that file 2 had the most human-like voice, instead of file 3 as we suspected. When we asked what voice was the most similar to the demo voice the answers differ a lot again. We cannot conclude anything from this.
+
+### Conclussion and Discussion
+
+The results show that it seems to be the case that the model works better using the English language than the Dutch language. Especially, the English output seems to be better than the Dutch language. Also, the input of the model seems not to depend on if the sentence was already heard or not. Finally, the amount of input to the model seems to have a slightly difference. The cloned voice using the least amount of input was the least human-like according to the participants. However, the cloned voice using the most amount of input was not the most human-like according to the participants. 
+
+
+Points of discussion are the following:
+
+* The input files were really short. Especially for the experiment about the different amount of input data, this might have influence, as the differences of the files are very small.
+* Every time, the neural network behind the model in the repo creates a new output, even if the input is the same. So, it might be the case that one output is very different from another output, while the same input file is used. In case there are very small differences between the file, then this also might be 'bad luck' that the model outputs a better or worse output than an other output where it is compared with.
+* Because of limited time, we only found three participants to join our experiment. More participants are needed to find a significant result.
 
 ## Setup
 
