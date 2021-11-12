@@ -35,7 +35,7 @@ We expected that the language would make a difference in performance, as the mod
 
 #### 1. Participants
 
-All three participants that filled in the survey were native Dutch speakers, and second language English speakers. (How many? + more info?)
+All three participants that filled in the survey were native Dutch speakers, and second language English speakers.
 
 #### 2. Test the difference in language that is used
 The original model of this repo is trained on the English language. To test whether this model works on different languages, we tried to test it on the Dutch language as well. We did this in four different ways.
